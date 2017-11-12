@@ -31,7 +31,7 @@ public class EventViewer extends JFrame{
 	private JTextArea textArea;
 	DateFormat format = new SimpleDateFormat("MMddyyHHmmss");
 	@PersistenceUnit
-    private EntityManagerFactory emf=Persistence.createEntityManagerFactory( "CRM" );
+    private EntityManagerFactory emf=Persistence.createEntityManagerFactory( "Calendar" );
 	public EventViewer(int row, int column, Event ev) throws ParseException{
 		Date date = format.parse("022310141505");
 		this.setVisible(true);
@@ -44,7 +44,6 @@ public class EventViewer extends JFrame{
 		JLabel time = new JLabel();
         List<Event> events = (List<Event>)em.createQuery("SELECT e FROM Event e", Event.class)
                               .getResultList(); 
-        System.out.println("List of all customers: "+"<br/>");
         Iterator i = events.iterator();
         Event event;
         while (i.hasNext()) {
@@ -53,26 +52,18 @@ public class EventViewer extends JFrame{
             	textArea.setText(event.getText());
             	time.setText(event.getTime().toString());
             }
-            System.out.println(event.getText()+"<br/>");
-            System.out.println(event.getTime()+"<br/>");
-            System.out.println(event.getRow()+"<br/>");
-            System.out.println(event.getColumn()+"<br/>");
-            System.out.println("----------------" + "<br/>");
+           
         }
 		lblTime = new JLabel("Time:");
 		lblTime.setBackground(UIManager.getColor("CheckBox.foreground"));
 		getContentPane().add(lblTime, "cell 0 1");
 		
-		//time.setText(ev.getTime().toString());
-		
-		//getContentPane().add(spinner, "cell 1 1 3 1,grow");
 		
 		lblEventDetails = new JLabel("Event Details");
 		getContentPane().add(lblEventDetails, "cell 1 3");
 		
 		textArea = new JTextArea();
 		textArea.setEditable(false);
-		//textArea.setText(ev.getText());
 		getContentPane().add(textArea, "cell 1 4 13 4,grow");
 		
 		

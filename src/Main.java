@@ -8,10 +8,8 @@ import javax.persistence.PersistenceContext;
 public class Main {
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		SwingCalendar sc = new SwingCalendar();
-		EntityManage em= new EntityManage();
-		em.listEvent();
+		
 	}
 	
 }

@@ -71,12 +71,10 @@ public class SwingCalendar extends JFrame {
     		int row = table.getSelectedRow();
   	      if (row > -1) {
   	  	      int column = table.getSelectedColumn();
-  	  	      System.out.println("Clicked " + table.getValueAt(row,column));
   	      
   	    	  try {
 				EventViewer viewer = new EventViewer(row,column,em.getEvent(row, column));
 			} catch (ParseException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
   	      }
@@ -94,11 +92,9 @@ public class SwingCalendar extends JFrame {
     		int row = table.getSelectedRow();
     	      if (row > -1) {
     	  	      int column = table.getSelectedColumn();
-    	  	      System.out.println("Clicked " + table.getValueAt(row,column));
     	      try {
 				EventScheduler ev = new EventScheduler(row,column);
 			} catch (ParseException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
     	  	  }
